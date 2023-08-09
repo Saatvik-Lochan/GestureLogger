@@ -1,4 +1,4 @@
-classdef discreteAnnotation < annotation
+classdef discreteAnnotation < gestureAnnotation
     properties (Constant)
         annotType = "discrete"
     end
@@ -32,7 +32,7 @@ classdef discreteAnnotation < annotation
 
     methods
         function obj = discreteAnnotation(name, triggerFrame)
-            obj@annotation(name, [1 0 0]);
+            obj@gestureAnnotation(name, [1 0 0]);
             obj.triggerFrame = triggerFrame;
         end
 
@@ -55,7 +55,7 @@ classdef discreteAnnotation < annotation
         end
 
         function json = getJson(obj)
-            superStruct = jsondecode(getJson@annotation(obj));
+            superStruct = jsondecode(getJson@gestureAnnotation(obj));
             jsonStruct.name = superStruct.name;
             jsonStruct.triggerFrame = obj.triggerFrame;
             jsonStruct.annotType = obj.annotType;

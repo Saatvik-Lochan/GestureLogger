@@ -1,4 +1,4 @@
-classdef continuousAnnotation < annotation
+classdef continuousAnnotation < gestureAnnotation
     properties (Constant)
        annotType = "continuous" 
     end
@@ -34,7 +34,7 @@ classdef continuousAnnotation < annotation
 
     methods
         function obj = continuousAnnotation(name, startFrame, endFrame)
-            obj@annotation(name, [0 0 1]);
+            obj@gestureAnnotation(name, [0 0 1]);
 
             obj.startFrame = startFrame;
             obj.endFrame = endFrame;
@@ -79,7 +79,7 @@ classdef continuousAnnotation < annotation
         end
 
         function json = getJson(obj)
-            superStruct = jsondecode(getJson@annotation(obj));
+            superStruct = jsondecode(getJson@gestureAnnotation(obj));
             jsonStruct.name = superStruct.name;
             jsonStruct.startFrame = obj.startFrame;
             jsonStruct.endFrame = obj.endFrame;
@@ -112,7 +112,7 @@ classdef continuousAnnotation < annotation
         end
 
         function clamped = clampToBounds(obj, x)
-            clamped = basicReplay.clamp(x, obj.startFrame, obj.endFrame);
+            clamped = basicReplayGrid.clamp(x, obj.startFrame, obj.endFrame);
         end
 
         function result = containsFrame(obj, frame)

@@ -1,4 +1,4 @@
-classdef (Abstract) annotation < handle
+classdef (Abstract) gestureAnnotation < handle
     % ANNOTATION a class to facilitiate annotations
 
     properties
@@ -13,7 +13,7 @@ classdef (Abstract) annotation < handle
     end
 
     methods
-        function obj = annotation(name, colour)
+        function obj = gestureAnnotation(name, colour)
             obj.name = name;
             obj.colour = colour;
         end
