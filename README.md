@@ -42,7 +42,7 @@ for instructions on how to host).
 
 **TODO - add instructions for changing server url**
 
-There is no guarantee that the default servers will be able to serve 
+> There is no guarantee that the default servers will be able to serve 
 your requests. Though you are welcome to use the default servers to 
 trial the software. 
 
@@ -75,7 +75,7 @@ You can create new `gesture classes` by clicking `Add Gesture`. You
 can edit the annotation coupled with it in the right hand pane - adding
 `sub-annotations`, changing the type, the name, etc.
 
-![A screenshot of the Edit Gesture panel](docs/add_gesture.png)
+![A screenshot of the Edit Gesture panel](docs/edit_gesture.png)
 
 The predicted properties tab is optional, and will be used
 to populate the default annotation values.
