@@ -1,29 +1,24 @@
 classdef httpManager
     properties
+        frontendUrl
         baseUrl
         token
     end
 
     methods (Static)
-        function [obj, success] = register(baseUrl, name, password, description)
+        function success = register(baseUrl, name, password, description)
             request = struct( ...
                 'project_name', name, ...
                 'password', password, ...
                 'description', description);
             url = strcat(baseUrl, "/project/register");
 
-            [status, respData] = httpManager.postData(url, request);
+            [status, ~] = httpManager.postData(url, request);
 
-            if status == matlab.net.http.StatusCode.Created
-                success = true;
-                obj = httpManager(baseUrl, respData.token);
-            else
-                success = false;
-                obj = respData;
-            end
+            success = status == matlab.net.http.StatusCode.Created;
         end
 
-        function [obj, success] = fromLogin(baseUrl, name, password)
+        function [obj, success] = fromLogin(baseUrl, frontendUrl, name, password)
             request = struct( ...
                 'project_name', name, ...
                 'password', password);
@@ -33,7 +28,7 @@ classdef httpManager
 
             if status == matlab.net.http.StatusCode.OK
                 success = true;
-                obj = httpManager(baseUrl, respData.token);
+                obj = httpManager(baseUrl, frontendUrl, respData.token);
             else
                 success = false;
                 obj = respData;
@@ -157,7 +152,8 @@ classdef httpManager
     end
 
     methods
-        function obj = httpManager(baseUrl, token)
+        function obj = httpManager(baseUrl, frontendUrl, token)
+            obj.frontendUrl = frontendUrl;
             obj.baseUrl = baseUrl;
             obj.token = token;
         end
