@@ -34,6 +34,8 @@ The usage of this application is split into three main parts:
  - [Annotate and export](#annotate-and-export)
 
 There are some [notes](#useful-notes) that might come in useful.
+Additionally you can see the [export format](#export-format) and
+the [gesture annotator](#gesture-annotator).
 
 ### ⚠️ Hosting servers
 It is recommended that you host your own servers (see 
@@ -252,12 +254,17 @@ includes:
 - the ability to mark hand joints and see the co-ordinates
 - the ability to pan and zoom
 
+> If you choose to use the plot controls, ensure you disable
+them before interacting with the timeline, otherwise you
+might encounter some bugs.
+
 #### The Timeline
 The timeline has 3 important components: the cursor, the annotations, and the
 annotation subtitle.
 
 The cursor indicates the current frame displayed in the [gesture view](#the-gesture-view)
-and can be dragged with the LMB or moved with the use of the arrow keys.
+and can be dragged with the LMB or moved with the use of the arrow keys 
+(additionally press `shift` to move the cursor faster).
 
 The annotations are the blue rectangles (`continuous`) and red vertical lines
 (`discrete`). Only one annotation can be selected at any given moment - this 
@@ -317,6 +324,68 @@ in the [SHREC dataset](https://paperswithcode.com/dataset/shrec).
 ```
 > See [format string](#exporting-the-dataset).
 
+#### Data File Format
+Each data file will itself be a `.csv` file with the 352 columns of two types
+- Position data (350 columns)
+- Time data (2 columns - `startTime` and `endTime`)
+    - `startTime` - the time at which this frame's capture started in milliseconds
+    - `endTime` - the time at which this frame's capture ended in milliseconds
+
+Each row in the `.csv` file is one frame of captured data, and is in 
+chronological order.
+
+A position header will be similar to: `l0_pos_x`. 
+- The first character `l` indicates the left hand (`r` for right)
+- The second character is a number from 0 to 24 corresponding to a hand
+joint as laid out in the [WebXR Hand Input Specification](https://www.w3.org/TR/webxr-hand-input-1/#skeleton-joints-section)
+- `pos` indicated that this column holds information on the position of the joint.
+`quat` would indicate the quaternion for that joint.
+- Finally `x` indicated that this column holds the `x` co-ordinate of the data.
+`pos` can have `x, y, z` while `quat` can have `x, y, z, w`.
+
+Therefore the `l0_pos_x` column gives us the left-hand wrist's x position.
+
+#### Annotation File Format
+The annotation file is also a `.csv` file with one row per `gesture instance`
+of that `gesture class` (there is one annotation file per `gesture class`).
+
+Each row is of the following form,
+```
+<gesture instance id>(,<annotation_name>, <annotation_data>)*
+```
+where `<annotation data>` can be either `continuous` or `discrete`
+```
+<continuous annotation_data> = <start_frame>,<end_frame>
+<discrete annotation_data> = <trigger_frame>
+```
+
+`<gesture instance id>` is the id of the `gesture instance` described
+in that row. The `<gesture instance id>` also goes by `giid` or can be accessed
+by the required `%g` modifier in the [format string](#exporting-the-dataset).
+
+The part in parantheses exists for each `annotation` or `sub-annotation`, and
+the order is not specified.
+
+For example, consider a `gesture instance` with id `1` of the annotation 
+`Clap`, with a sub-annotation `HandsMeet`:
+```
+Clap (continuous) - startFrame: 100, endframe: 350
+    - HandsMeet (discrete) - triggerFrame: 200
+```
+
+This would give us a row like
+```
+1,Clap,100,350,HandsMeet,200
+```
+
+> Although you might assume that each gesture class has the same format of
+annotations, and that the `<annotation_name>` is redundant, it has been
+included for ease of use, to mimic the SHREC dataset, and on the off chance 
+that someone edits the annotation of a gesture after already annotating some 
+gestures.
+
+#### Encouraged Workflow
+
 The encouraged workflow is to:
 1. Mark all the required gestures as completed.
 2. Export those gestures, inluding relevant information in the format string.
@@ -330,6 +399,7 @@ TODO:
 3. Gesture demonstration (expiring codes)
 4. Metadata
 5. Export format (inside the data file, csv headings for each)
+6. Revisit default annotation startFrame/endFrame stuff
 
 ## Extension
 To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). Then
