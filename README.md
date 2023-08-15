@@ -43,8 +43,6 @@ It is recommended that you host your own servers (see
 and [WebGestureCaptureBackend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git)
 for instructions on how to host).
 
-**TODO - add instructions for changing server url**
-
 > There is no guarantee that the default servers will be able to serve 
 your requests. Though you are welcome to use the default servers to 
 trial the software. 
@@ -414,3 +412,12 @@ you can simply open [`Login.mlapp`](Login.mlapp) to start.
 
 You can run a development session from within MATLAB, and you
 can build a standalone application with the [Application Compiler](https://uk.mathworks.com/help/compiler/applicationcompiler-app.html).
+
+## TODO
+- [ ] README updates
+    - [ ] Fix unimplemented links 
+    - [ ] Record short video for the trials 
+- [ ] Add cron job to delete old files
+- [ ] Add capability to choose backend server in frontend
+- [ ] Add ability to change both server through application
+- [ ] Add 'redo' ability and record data around how many retries etc.
