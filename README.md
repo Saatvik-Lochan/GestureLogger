@@ -33,6 +33,7 @@ The usage of this application is split into three main parts:
  - [Capture the data](#capture)
  - [Annotate and export](#annotate-and-export)
 
+There are some [notes](#useful-notes) that might come in useful.
 
 ### ⚠️ Hosting servers
 It is recommended that you host your own servers (see 
@@ -169,28 +170,166 @@ was recorded. This time can be changed or removed entirely if you
 decide to [host your own servers](#⚠️-hosting-servers). 
 
 ### Annotate and Export
-This involves a few steps:
-1. Finding the gesture to annotate
-2. Annotating the gesture
-3. Marking the gesture for export
-4. Exporting the dataset
+This involves three steps:
+1. [Finding the gesture to annotate](#finding-the-right-gesture)
+2. [Annotating the gesture](#annotating-the-gesture)
+3. [Exporting the dataset](#exporting-the-dataset)
 
 #### Finding the right gesture
-Downloaded gesture can be found in three major ways:
+Downloaded gesture can be found in three main ways:
 - By `gesture class` - *navigate to the `Gestures` tab then `Gesture 
  Instances`*
-- By `participant` - *navigate to the `Participants` tab then `Performed Gestures`*
+- By `participant` - *navigate to the `Participants` tab then `Performed 
+ Gestures`*
 - By annotation status - *navigate to the `Captures` tab*
 
 #### Annotating the gesture
 Select the `gesture instance` in the table, and then select `Open
 Gesture Annotator`. You may have to wait for the new application to open.
 
+See [Gesture Annotator](#gesture-annotator) for details on 
+using this part of the application.
+
+#### Exporting the dataset
+Select `Export` then `exportSHREC` in the menubar to open the export window. 
+Only annotations marked as `completed` are added to any export.
+
+The format string allows you to customise the name of files which store
+the gesture data. These are the modifiers you can use in the format string:
+
+> A `gesture instance` is an instance of a performed gesture. Each `gesture
+instance` has its own data file with captured hand data.
+
+| modifier | description |
+| -------- | ----------- |
+| `%n` | The name of the class of the `gesture instance` |
+| `%N` | The name of the trial the `gesture instance` was performed in |
+| `%g` | The id of the `gesture instance` given by the internal database |
+| `%G` | The id of the `gesture class` of this `gesture instance` given by the internal database |
+| `%t` | The id of the `trial instance` of this `gesture instance` given by the internal database |
+| `%T` | The id of the `trial template` of this `gesture instance` given by the internal database |
+| `%p` | The index position of `gesture instance` within its `trial template` |
+| `%P` | The id of the `participant` who performed this `gesture instance`|
+| `%i` | The instructions attached to this `gesture instance` in its `trial template` |
+| `%s` | The number of repetitions of this `gesture instance` in its `trial  template`|
+| `%d` | The duration in seconds of the data recorded for this `gesture instance` |
+
+> The `%s` modifier only reports the number of repetitions directly mapped
+to the `gesture class` - not the total number of repetitions in the trial. 
+See [trial templates](#creating-trial-templates). 
+
+> See [export format](#export-format) for more details on the output of the 
+export.
+
+### Gesture Annotator
+![Screenshot of the gesture annotator](docs/gesture_annotator.png)
+The gesture annotator is the part of the application that 
+deals with the process of annotating the captured gesture data.
+This is done by adjusting both `continuous` and `discrete` annotations
+until they match the captured data. This data will be included under the
+`annotations` folder in the export.
+
+In short, you can use the gesture annotator to view the captured gesture,
+and edit its annotations.
 
 
+![Labelled screenshot of the gesture annotator](docs/gesture_annotator_main.png)
+*A screenshot of the gesture annotator window*
 
+The labels correspond to the following
+1. [the gesture view](#the-gesture-view)
+2. [the timeline](#the-timeline)
+3. [the annotation view](#the-annotation-view)
+4. [the control panel](#the-control-panel)
+
+#### The Gesture View
+The gesture view is the part of the application where you can see the 
+gesture itself modelled as a plot of connected joints. This is a 
+standard [MATLAB 3D plot](https://uk.mathworks.com/help/matlab/ref/plot3.html)
+and thus inherits all of the controls which are available to them, this 
+includes:
+- the ability to rotate the plot
+- the ability to mark hand joints and see the co-ordinates
+- the ability to pan and zoom
+
+#### The Timeline
+The timeline has 3 important components: the cursor, the annotations, and the
+annotation subtitle.
+
+The cursor indicates the current frame displayed in the [gesture view](#the-gesture-view)
+and can be dragged with the LMB or moved with the use of the arrow keys.
+
+The annotations are the blue rectangles (`continuous`) and red vertical lines
+(`discrete`). Only one annotation can be selected at any given moment - this 
+annotation will be opaque while the others will be semi-transparent. 
+Additionally this annotation will be selected in the [annotation view](#the-annotation-view)
+and in the annotation subtitle.
+
+The selected annotation can be dragged with the RMB, or moved to the 
+current cursor position by pressing `a` on the keyboard.
+
+The selected annotation can be changed by clicking on an annotation with the
+MMB, or by holding `alt` with the LMB. It can also be changed by selecting
+it in the [annotation view](#the-annotation-view).
+
+#### The Annotation View
+The annotation view shows the `annotations` and their `sub-annotations` (see
+[creating gesture classes](#creating-gesture-classes)). 
+
+Selecting an annotation in the annotation view will do two things:
+- Select that annotation in the timeline
+- Move the current frame to that annotation and start playing it if it is 
+`continuous`
+
+The small coloured circle to the left of the annotation name indicated whether
+the current frame is within that annotation. 
+
+You can hide an annotation in the timeline by unchecking it in the annotation
+view.
+
+#### The Control Panel
+This panel is mostly self-explanatory. You can 
+ - Play/Pause
+ - Change playback speed
+ - Jump to a frame
+ - Save the annotation
+ - Mark annotation as complete/incomplete
+
+ An annotation must be marked as complete for it to be included in an export
+ (the gesture annotator must be closed before an annotation marked as 
+ complete will be updated as so in the main window).
+
+ > Marking a gesture as complete will not save it. You must save it manually 
+ as well.
+
+### Export Format
+The `exportSHREC` export format will export a dataset similar to that curated
+in the [SHREC dataset](https://paperswithcode.com/dataset/shrec).
+
+```tree
+- <project name>-export-<DD-MM-YY_HH-MM-SS>
+	- data
+        // one for each recorded gesture
+		- <name given by format_string>.csv
+	- annotations
+        // one for each gesture class
+		- <gesture class name>.csv
+```
+> See [format string](#exporting-the-dataset).
+
+The encouraged workflow is to:
+1. Mark all the required gestures as completed.
+2. Export those gestures, inluding relevant information in the format string.
+3. Sort and filter those gestures during analysis with the help of the file 
+names given by the format strings.
 
 ### Useful notes
+TODO:
+1. Admin menu bar
+2. Refresh menu bar
+3. Gesture demonstration (expiring codes)
+4. Metadata
+5. Export format (inside the data file, csv headings for each)
 
 ## Extension
 To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). Then
