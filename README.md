@@ -80,8 +80,16 @@ can edit the annotation coupled with it in the right hand pane - adding
 
 ![A screenshot of the Edit Gesture panel](docs/edit_gesture.png)
 
-The predicted properties tab is optional, and will be used
+The predicted properties panel is optional, and will be used
 to populate the default annotation values.
+
+> You can add demonstrations to the gestures that will be displayed to 
+participants by going to the `Demonstration` tab. The resulting link should be
+[opened with a VR headset](#opening-the-url-on-the-vr-headset). After following
+the instructions, the demonstration should appear in any trials using that 
+`gesture class`. The link will expire after a few minutes.
+
+![Screenshot of the gesture demonstration tab](docs/gesture_demonstration.png)
 
 #### Creating Trial Templates
 A `trial` is the unit of data capture from the perspective of the
@@ -392,14 +400,13 @@ The encouraged workflow is to:
 3. Sort and filter those gestures during analysis with the help of the file 
 names given by the format strings.
 
-### Useful notes
-TODO:
-1. Admin menu bar
-2. Refresh menu bar
-3. Gesture demonstration (expiring codes)
-4. Metadata
-5. Export format (inside the data file, csv headings for each)
-6. Revisit default annotation startFrame/endFrame stuff
+### Useful Notes
+#### Menubar
+The menubar has 4 items:
+- Refresh - updates the GUI if it appears to be stuck
+- Sync - upload unpushed trials and download completed ones
+- Export - export completed gestures
+- Admin - get the locations of important folders and URLs 
 
 ## Extension
 To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). Then
