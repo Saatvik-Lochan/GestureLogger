@@ -1,4 +1,40 @@
 # GestureLogger
+## Table of Contents
+- [GestureLogger](#gesturelogger)
+  - [Table of Contents](#table-of-contents)
+  - [Purpose](#purpose)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [⚠️ Hosting servers](#️-hosting-servers)
+    - [Setup](#setup)
+      - [Register and Login](#register-and-login)
+      - [Creating Gesture Classes](#creating-gesture-classes)
+      - [Creating Trial Templates](#creating-trial-templates)
+      - [Adding Participants and Pushing Trials](#adding-participants-and-pushing-trials)
+    - [Capture](#capture)
+      - [Getting the URL](#getting-the-url)
+      - [Opening the URL on the VR Headset](#opening-the-url-on-the-vr-headset)
+      - [Making the participant perform the trial](#making-the-participant-perform-the-trial)
+      - [Downloading the captured data](#downloading-the-captured-data)
+    - [Annotate and Export](#annotate-and-export)
+      - [Finding the right gesture](#finding-the-right-gesture)
+      - [Annotating the gesture](#annotating-the-gesture)
+      - [Exporting the dataset](#exporting-the-dataset)
+    - [Gesture Annotator](#gesture-annotator)
+      - [The Gesture View](#the-gesture-view)
+      - [The Timeline](#the-timeline)
+      - [The Annotation View](#the-annotation-view)
+      - [The Control Panel](#the-control-panel)
+    - [Export Format](#export-format)
+      - [Data File Format](#data-file-format)
+      - [Annotation File Format](#annotation-file-format)
+      - [Encouraged Workflow](#encouraged-workflow)
+    - [Useful Notes](#useful-notes)
+      - [Menubar](#menubar)
+  - [Extension](#extension)
+  - [TODO](#todo)
+
+
 ## Purpose
 This application has been built to make the creation of
 hand-gesture datasets easier. It facilitates the asynchronous 
@@ -38,10 +74,22 @@ Additionally you can see the [export format](#export-format) and
 the [gesture annotator](#gesture-annotator).
 
 ### ⚠️ Hosting servers
-It is recommended that you host your own servers (see 
-[WebGestureCapture](https://github.com/Saatvik-Lochan/WebGestureCapture.git) 
-and [WebGestureCaptureBackend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git)
-for instructions on how to host).
+It is recommended that you host your own servers:
+- [WebGestureCapture](https://github.com/Saatvik-Lochan/WebGestureCapture.git) 
+is the frontend that serves the pages on which the participants perform
+the hand gestures for capture 
+    - default: https://gesturelogger.com
+- [WebGestureCaptureBackend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git)
+is the backend that stores the captured data and communicates with the
+application
+    - default: https://gesturelogger.com:8000
+
+
+You could also only host your own [backend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git), 
+and simply update the backend URL when registering your project in the 
+application. This would still use the default frontend hosted at 
+https://gesturelogger.com, however you would have complete control over your 
+captured data and the default frontend would solely serve the page.
 
 > There is no guarantee that the default servers will be able to serve 
 your requests. Though you are welcome to use the default servers to 
@@ -418,6 +466,6 @@ can build a standalone application with the [Application Compiler](https://uk.ma
     - [ ] Fix unimplemented links 
     - [ ] Record short video for the trials 
 - [ ] Add cron job to delete old files
-- [ ] Add capability to choose backend server in frontend
-- [ ] Add ability to change both server through application
+- [x] Add capability to choose backend server in frontend
+- [x] Add ability to change both server through application
 - [ ] Add 'redo' ability and record data around how many retries etc.
