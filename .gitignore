@@ -1,5 +1,6 @@
 project_files
 testing
+build
 
 *.csv
 *.asv
