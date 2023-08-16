@@ -96,8 +96,11 @@ The advantages of hosting your own backend server are:
 - You are not limited by the default server's data capacity and bandwidth
 - You can change the server settings as to never delete data
 - You will never lose data to an external crash
+- You will never experience downtime
 
-Additionally, it is quite easy to set up.
+Additionally, it is quite easy to set up. If easier, you could set it up
+on the same machine you run the application from - running it whenever
+a participant needs to perform a gesture.
 
 > There is no guarantee that the default servers will be able to serve 
 your requests. Though you are welcome to use the default servers to 
