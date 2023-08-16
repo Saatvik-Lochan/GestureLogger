@@ -5,7 +5,7 @@
   - [Purpose](#purpose)
   - [Installation](#installation)
   - [Usage](#usage)
-    - [⚠️ Hosting servers](#️-hosting-servers)
+    - [Hosting servers](#hosting-servers)
     - [Setup](#setup)
       - [Register and Login](#register-and-login)
       - [Creating Gesture Classes](#creating-gesture-classes)
@@ -73,23 +73,29 @@ There are some [notes](#useful-notes) that might come in useful.
 Additionally you can see the [export format](#export-format) and
 the [gesture annotator](#gesture-annotator).
 
-### ⚠️ Hosting servers
+### Hosting servers
 It is recommended that you host your own servers:
 - [WebGestureCapture](https://github.com/Saatvik-Lochan/WebGestureCapture.git) 
 is the frontend that serves the pages on which the participants perform
-the hand gestures for capture 
+the gestures
     - default: https://gesturelogger.com
 - [WebGestureCaptureBackend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git)
 is the backend that stores the captured data and communicates with the
 application
     - default: https://gesturelogger.com:8000
 
+You do not have to host both servers. You can use the default frontend at 
+https://gesturelogger.com along with your own backend. You can mix 
+and match these servers - as long as you specify which ones you are using
+when creating a project.
 
-You could also only host your own [backend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git), 
-and simply update the backend URL when registering your project in the 
-application. This would still use the default frontend hosted at 
-https://gesturelogger.com, however you would have complete control over your 
-captured data and the default frontend would solely serve the page.
+The advantages of hosting your own backend server are:
+- You have complete control over and privacy of captured data
+- You are not limited by the default server's data capacity and bandwidth
+- You can change the server settings as to never delete data
+- You will never lose data to an external crash
+
+Additionally, it is quite easy to set up.
 
 > There is no guarantee that the default servers will be able to serve 
 your requests. Though you are welcome to use the default servers to 
@@ -104,7 +110,7 @@ You can then login by selecting the `.json` project file with the name
 of the project you registered last time
 
 > If the server does not respond, you might have to host your own 
-[server](#⚠️-hosting-servers).
+[server](#hosting-servers).
 
 #### Creating Gesture Classes
 ![UML of the annotation gesture classes](docs/annotation_uml.png)
@@ -223,7 +229,7 @@ once participants have gotten the hang of recording gestures.
 This is as simple as clicking the `Sync` button in the menu bar.
 The data can be downloaded from the server for up to 3 days after it 
 was recorded. This time can be changed or removed entirely if you 
-decide to [host your own servers](#⚠️-hosting-servers). 
+decide to [host your own servers](#hosting-servers). 
 
 ### Annotate and Export
 This involves three steps:
@@ -465,7 +471,7 @@ can build a standalone application with the [Application Compiler](https://uk.ma
 - [ ] README updates
     - [ ] Fix unimplemented links 
     - [ ] Record short video for the trials 
-- [ ] Add cron job to delete old files
+- [x] Add cron job to delete old files
 - [x] Add capability to choose backend server in frontend
 - [x] Add ability to change both server through application
 - [ ] Add 'redo' ability and record data around how many retries etc.
