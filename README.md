@@ -89,6 +89,8 @@ https://gesturelogger.com along with your own backend. You can mix
 and match these servers - as long as you specify which ones you are using
 when creating a project.
 
+![Login page screenshot](docs/login_serverurls.png)
+
 The advantages of hosting your own backend server are:
 - You have complete control over and privacy of captured data
 - You are not limited by the default server's data capacity and bandwidth
