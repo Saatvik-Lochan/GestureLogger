@@ -479,4 +479,6 @@ can build a standalone application with the [Application Compiler](https://uk.ma
 - [x] Add cron job to delete old files
 - [x] Add capability to choose backend server in frontend
 - [x] Add ability to change both server through application
-- [ ] Add 'redo' ability and record data around how many retries etc.
+- [x] Add 'redo' ability and record data around how many retries etc.
+- [ ] Fix bug where last gesture was not recorded
+- [ ] Fix bug where participant url not showing in the test build
