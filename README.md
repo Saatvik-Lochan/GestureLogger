@@ -85,6 +85,9 @@ is the backend that stores the captured data and communicates with the
 application
     - default: https://gesturelogger.com:8000
 
+> Hosting your own server will require a SSL certificate, as WebXR only works
+> with https
+
 You do not have to host both servers. You can use the default frontend at 
 https://gesturelogger.com along with your own backend. You can mix 
 and match these servers - as long as you specify which ones you are using
