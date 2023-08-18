@@ -495,3 +495,8 @@ can build a standalone application with the [Application Compiler](https://uk.ma
 - [x] Add 'redo' ability and record data around how many retries etc.
 - [x] Fix bug where last gesture was not recorded
 - [ ] Fix bug where participant url not showing in the test build
+- [ ] Make loadFont more transparent (try to load in index.html)
+- [ ] Make assigning to frameListeners explicit (no silent 
+overwriting of listeners)
+- [ ] Store metadata in server - and build route to serve it
+- [ ] Write documentation for the buttons (`clickable.ts`) 
