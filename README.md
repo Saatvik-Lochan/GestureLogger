@@ -31,6 +31,7 @@
       - [Encouraged Workflow](#encouraged-workflow)
     - [Useful Notes](#useful-notes)
       - [Menubar](#menubar)
+      - [Annotation Status](#annotation-status)
   - [Extension](#extension)
   - [TODO](#todo)
 
@@ -259,7 +260,8 @@ using this part of the application.
 
 #### Exporting the dataset
 Select `Export` then `exportSHREC` in the menubar to open the export window. 
-Only annotations marked as `completed` are added to any export.
+Only annotations marked as `completed` are added to any export (see 
+[annotation status](#annotation-status)).
 
 The format string allows you to customise the name of files which store
 the gesture data. These are the modifiers you can use in the format string:
@@ -465,6 +467,17 @@ The menubar has 4 items:
 - Export - export completed gestures
 - Admin - get the locations of important folders and URLs 
 
+#### Annotation Status
+A gesture can have one of three values as an annotation status
+- `unannotated` - this implies that this gesture has never been opened in the 
+[gesture annotator](#gesture-annotator) (i.e. internally, the annotation file has not been created).
+- `incomplete` - this implies that the gesture has been opened, but the user
+has not marked it as complete.
+- `complete` - the user has marked the gesture annotation as complete.
+
+> A geture must be marked as `complete` to be included in an
+> [export](#exporting-the-dataset)
+
 ## Extension
 To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). Then
 you can simply open [`Login.mlapp`](Login.mlapp) to start.
@@ -480,5 +493,5 @@ can build a standalone application with the [Application Compiler](https://uk.ma
 - [x] Add capability to choose backend server in frontend
 - [x] Add ability to change both server through application
 - [x] Add 'redo' ability and record data around how many retries etc.
-- [ ] Fix bug where last gesture was not recorded
+- [x] Fix bug where last gesture was not recorded
 - [ ] Fix bug where participant url not showing in the test build
