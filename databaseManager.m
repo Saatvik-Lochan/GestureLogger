@@ -179,6 +179,14 @@ classdef databaseManager < handle
             end
         end
 
+        function name = getNameOfGesture(obj, gid)
+            name = obj.getCell("gid", string(gid), "gesture_class", "name");
+        end
+
+        function isStream = getIsStreamOfGesture(obj, gid)
+            isStream = obj.getCell("gid", string(gid), "gesture_class", "is_stream");
+        end
+
         function file = getDataFileOfGiid(obj, giid)
             file = obj.getCell("giid", string(giid), "gesture_instance", "data_file");
         end
@@ -263,8 +271,8 @@ classdef databaseManager < handle
         end
 
         function addGesture(obj, name, json)
-            row = {name, json};
-            data = cell2table(row,'VariableNames', {'name', 'json'});
+            row = {name, json, false};
+            data = cell2table(row,'VariableNames', {'name', 'json', 'is_stream'});
             obj.conn.sqlwrite("gesture_class", data);
         end
 
@@ -313,8 +321,8 @@ classdef databaseManager < handle
 
         function updateNumField(obj, table, keyField, keyValue, field, value)
             sqlquery = strcat("UPDATE ", table, ...
-                " SET ", field, " = ", value, ...
-                " WHERE ", keyField, " = ", keyValue);
+                " SET ", field, " = ", string(value), ...
+                " WHERE ", keyField, " = ", string(keyValue));
             obj.conn.execute(sqlquery);
         end
         
@@ -332,6 +340,14 @@ classdef databaseManager < handle
 
             query = strcat(query, " WHERE tid = ", tid, " and pos = ", pos);
             obj.conn.execute(query);
+        end
+
+        function updateGestureIsStream(obj, gid, isStream)
+            obj.updateNumField("gesture_class", "gid", gid, "is_stream", isStream);
+        end
+
+        function updateGestureName(obj, gid, name)
+            obj.updateTextField("gesture_class", "gid", gid, "name", name);
         end
 
         function updateGesture(obj, gid, name, json)
@@ -439,7 +455,8 @@ classdef databaseManager < handle
                 strcat("CREATE TABLE gesture_class(", ...
                             "gid INTEGER PRIMARY KEY AUTOINCREMENT, ", ...
                             "name TEXT, ", ...
-                            "json TEXT)"), ...
+                            "json TEXT, ", ...
+                            "is_stream INTEGER)"), ...
                 strcat("CREATE TABLE trial_gesture(", ...
                             "tid INTEGER, ", ...
                             "pos INTEGER, ", ...

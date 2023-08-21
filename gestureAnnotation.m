@@ -44,6 +44,8 @@ classdef (Abstract) gestureAnnotation < handle
         end
 
         function delete(obj)
+            cellfun(@(child) child.delete(), obj.children);
+
             if obj.annot ~= "Unassigned"
                 obj.annot.delete();
             end
@@ -51,8 +53,6 @@ classdef (Abstract) gestureAnnotation < handle
             if obj.parent ~= "Unassigned"
                 obj.parent.removeChild(obj);
             end
-
-            cellfun(@(child) child.delete(), obj.children);
         end
 
         function drag(obj, newX)
