@@ -503,3 +503,6 @@ can build a standalone application with the [Application Compiler](https://uk.ma
 overwriting of listeners)
 - [ ] Store metadata in server - and build route to serve it
 - [ ] Write documentation for the buttons (`clickable.ts`) 
+- [x] Fix left/right hand bug
+- [ ] Add ability to get more info on a gesture instance through a pop up box
+- [ ] Add 'sequences' route and option
