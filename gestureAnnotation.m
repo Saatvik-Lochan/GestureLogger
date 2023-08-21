@@ -43,6 +43,18 @@ classdef (Abstract) gestureAnnotation < handle
             obj.updateAlpha();
         end
 
+        function delete(obj)
+            if obj.annot ~= "Unassigned"
+                obj.annot.delete();
+            end
+
+            if obj.parent ~= "Unassigned"
+                obj.parent.removeChild(obj);
+            end
+
+            cellfun(@(child) child.delete(), obj.children);
+        end
+
         function drag(obj, newX)
             if obj.annot == "Unassigned" || ~obj.annot.Visible 
                 return;
@@ -72,7 +84,6 @@ classdef (Abstract) gestureAnnotation < handle
 
     methods (Abstract)
         res = isValid(obj)
-        % makeValid(obj)
         dist = distanceTo(obj, x, y)
         boundsResize(obj)
         clampOwnBounds(obj)

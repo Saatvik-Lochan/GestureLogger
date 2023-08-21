@@ -190,7 +190,7 @@ classdef continuousAnnotation < gestureAnnotation
         function removeChild(obj, toRemove)
             newChildren = cell(1, length(obj.children)-1);
 
-            current = 1
+            current = 1;
             for i = 1:length(obj.children)
                 child = obj.children{i};
                 if child ~= toRemove
