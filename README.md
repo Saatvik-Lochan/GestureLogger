@@ -32,6 +32,7 @@
     - [Useful Notes](#useful-notes)
       - [Menubar](#menubar)
       - [Annotation Status](#annotation-status)
+  - [Known Bugs](#known-bugs)
   - [Extension](#extension)
   - [TODO](#todo)
 
@@ -480,6 +481,20 @@ has not marked it as complete.
 
 > A geture must be marked as `complete` to be included in an
 > [export](#exporting-the-dataset)
+
+## Known Bugs
+- **Bug:** Experiencing extreme lag and stuttering when using the [gesture 
+annotator](#gesture_annotator)
+  - **Fix:** Your gesture capture likely has large gaps between frames, due
+             to a bad recording of the data. The best option is to discard 
+             that gesture.
+- **Bug:** A project can not be created since one with that name already, 
+           exists even though the previous creation had supposedly failed.
+  - **Fix:** Find the location of the project folders and delete them (these
+             is not the project file, though that also must be deleted). You 
+             can find its location by opening another project and going to
+             **Admin > DataFolder**
+
 
 ## Extension
 To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). Then

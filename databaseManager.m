@@ -55,6 +55,17 @@ classdef databaseManager < handle
         end
 
         % aggregate gets
+        function isStream = getIsStreamOfGiid(obj, giid)
+            sqlquery = strcat( ...
+                "SELECT gc.is_stream ", ...
+                "FROM gesture_class as gc ", ...
+                "JOIN gesture_instance as gi on gi.gid = gc.gid ", ...
+                "WHERE gi.giid = ", string(giid));
+
+            result = obj.conn.fetch(sqlquery);
+            isStream = result{1, 'is_stream'};
+        end
+
         function attrs = getAllAttributesOfAllCompleteGestureInstances(obj)
             sqlquery = strcat(...
                 "SELECT ", ...
@@ -187,6 +198,7 @@ classdef databaseManager < handle
             isStream = obj.getCell("gid", string(gid), "gesture_class", "is_stream");
         end
 
+
         function file = getDataFileOfGiid(obj, giid)
             file = obj.getCell("giid", string(giid), "gesture_instance", "data_file");
         end
@@ -314,8 +326,8 @@ classdef databaseManager < handle
         % update
         function updateTextField(obj, table, keyField, keyValue, field, value)
             sqlquery = strcat("UPDATE ", table, ...
-                " SET ", field, " = '", value, ...
-                "' WHERE ", keyField, " = ", keyValue);
+                " SET ", field, " = '", string(value), ...
+                "' WHERE ", keyField, " = ", string(keyValue));
             obj.conn.execute(sqlquery);
         end
 
@@ -348,6 +360,10 @@ classdef databaseManager < handle
 
         function updateGestureName(obj, gid, name)
             obj.updateTextField("gesture_class", "gid", gid, "name", name);
+        end
+
+        function updateGestureJson(obj, gid, json)
+            obj.updateTextField("gesture_class", "gid", gid, "json", json);
         end
 
         function updateGesture(obj, gid, name, json)
