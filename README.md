@@ -521,7 +521,6 @@ overwriting of listeners)
 - [ ] Store metadata in server - and build route to serve it
 - [ ] Write documentation for the buttons (`clickable.ts`) 
 - [x] Fix left/right hand bug
-- [ ] Add ability to get more info on a gesture instance through a pop up box
-- [ ] Add 'sequences' route and option
+- [x] Add ability to get more info on a gesture instance through a pop up box
 - [ ] Add feedback for recording gestures (make it known that a gesture for
 this type has already been recorded + name the gesture in the recording)
