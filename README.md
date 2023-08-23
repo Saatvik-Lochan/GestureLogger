@@ -284,10 +284,12 @@ instance` has its own data file with captured hand data.
 | `%p` | The index position of `gesture instance` within its `trial template` |
 | `%P` | The id of the `participant` who performed this `gesture instance`|
 | `%i` | The instructions attached to this `gesture instance` in its `trial template` |
-| `%s` | The number of repetitions of this `gesture instance` in its `trial  template`|
+| `%r` | The number of repetitions of this `gesture instance` in its `trial  template`|
 | `%d` | The duration in seconds of the data recorded for this `gesture instance` |
+| `%e` | Any additional participant information |
+| `%s` | `1` if the gesture is a stream type, `0` otherwise |
 
-> The `%s` modifier only reports the number of repetitions directly mapped
+> The `%r` modifier only reports the number of repetitions directly mapped
 to the `gesture class` - not the total number of repetitions in the trial. 
 See [trial templates](#creating-trial-templates). 
 
@@ -491,14 +493,14 @@ annotator](#gesture_annotator)
 - **Bug:** A project can not be created since one with that name already, 
            exists even though the previous creation had supposedly failed.
   - **Fix:** Find the location of the project folders and delete them (these
-             is not the project file, though that also must be deleted). You 
+             are not the project file, though that also must be deleted). You 
              can find its location by opening another project and going to
              **Admin > DataFolder**
 
 
 ## Extension
-To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). Then
-you can simply open [`Login.mlapp`](Login.mlapp) to start.
+To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). 
+Then you can simply open [`Login.mlapp`](Login.mlapp) to start.
 
 You can run a development session from within MATLAB, and you
 can build a standalone application with the [Application Compiler](https://uk.mathworks.com/help/compiler/applicationcompiler-app.html).
@@ -521,3 +523,5 @@ overwriting of listeners)
 - [x] Fix left/right hand bug
 - [ ] Add ability to get more info on a gesture instance through a pop up box
 - [ ] Add 'sequences' route and option
+- [ ] Add feedback for recording gestures (make it known that a gesture for
+this type has already been recorded + name the gesture in the recording)
