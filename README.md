@@ -30,6 +30,7 @@
       - [Annotation File Format](#annotation-file-format)
       - [Encouraged Workflow](#encouraged-workflow)
     - [Useful Notes](#useful-notes)
+      - [Editing and Deleting](#editing-and-deleting)
       - [Menubar](#menubar)
       - [Annotation Status](#annotation-status)
   - [Known Bugs](#known-bugs)
@@ -466,6 +467,20 @@ The encouraged workflow is to:
 names given by the format strings.
 
 ### Useful Notes
+#### Editing and Deleting
+There is no provision to delete trials, participants or gesture. 
+
+If you want to edit a trial, ensure you do it **before** you 
+you push it to a participant. 
+
+If you want to edit a gesture, ensure you do it **before** you annotate
+any gesture instance of that gesture. 
+
+If you have changed a gesture, and 
+want the annotation to propagate to any previously annotated gestures - 
+you must delete the annotation file for that gesture (See **Admin** in the
+[menubar](#menubar)).
+
 #### Menubar
 The menubar has 4 items:
 - Refresh - updates the GUI if it appears to be stuck
