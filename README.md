@@ -537,6 +537,6 @@ overwriting of listeners)
 - [ ] Write documentation for the buttons (`clickable.ts`) 
 - [x] Fix left/right hand bug
 - [x] Add ability to get more info on a gesture instance through a pop up box
-- [ ] Add feedback for recording gestures (make it known that a gesture for
+- [x] Add feedback for recording gestures (make it known that a gesture for
 this type has already been recorded + name the gesture in the recording)
 - [x] Add a clock (which speeds up when below a certain threshold)
