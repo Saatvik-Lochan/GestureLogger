@@ -540,3 +540,5 @@ overwriting of listeners)
 - [x] Add feedback for recording gestures (make it known that a gesture for
 this type has already been recorded + name the gesture in the recording)
 - [x] Add a clock (which speeds up when below a certain threshold)
+- [x] Add a progress bxr on top
+- [x] Add a way to view gesture demonstrations from inside the application
