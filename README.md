@@ -399,11 +399,12 @@ in the [SHREC dataset](https://paperswithcode.com/dataset/shrec).
 > See [format string](#exporting-the-dataset).
 
 #### Data File Format
-Each data file will itself be a `.csv` file with the 352 columns of two types
+Each data file will itself be a `.csv` file with the 359 columns of two types
 - Position data (350 columns)
 - Time data (2 columns - `startTime` and `endTime`)
     - `startTime` - the time at which this frame's capture started in milliseconds
     - `endTime` - the time at which this frame's capture ended in milliseconds
+- Camera pose (7 columns)
 
 Each row in the `.csv` file is one frame of captured data, and is in 
 chronological order.
