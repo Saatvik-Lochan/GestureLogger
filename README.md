@@ -159,7 +159,7 @@ the instructions, the demonstration should appear in any trials using that
 You can preview a recorded gesture by clicking on `Recording exists - click to
 view`.
 
-
+https://github.com/Saatvik-Lochan/GestureLogger/assets/67321822/ca84f580-0fb9-4586-876a-b61103eb4d00
 
 ### Creating Trial Templates
 A `trial` is the unit of data capture from the perspective of the
