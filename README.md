@@ -296,7 +296,7 @@ instance` has its own data file with captured hand data.
 | `%i` | The instructions attached to this `gesture instance` in its `trial template` |
 | `%r` | The number of repetitions of this `gesture instance` in its `trial  template`|
 | `%d` | The duration in seconds of the data recorded for this `gesture instance` |
-| `%e` | Any additional participant information |
+| `%e` | Any additional participant information. See [known bugs](#known-bugs). |
 | `%s` | `1` if the gesture is a stream type, `0` otherwise |
 
 > The `%r` modifier only reports the number of repetitions directly mapped
