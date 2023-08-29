@@ -1,44 +1,44 @@
 # GestureLogger
-## Table of Contents
+# Table of Contents
 - [GestureLogger](#gesturelogger)
-  - [Table of Contents](#table-of-contents)
-  - [Purpose](#purpose)
-  - [Installation](#installation)
-  - [Usage](#usage)
-    - [Hosting servers](#hosting-servers)
-    - [Setup](#setup)
-      - [Register and Login](#register-and-login)
-      - [Creating Gesture Classes](#creating-gesture-classes)
-      - [Creating Trial Templates](#creating-trial-templates)
-      - [Adding Participants and Pushing Trials](#adding-participants-and-pushing-trials)
-    - [Capture](#capture)
-      - [Getting the URL](#getting-the-url)
-      - [Opening the URL on the VR Headset](#opening-the-url-on-the-vr-headset)
-      - [Making the participant perform the trial](#making-the-participant-perform-the-trial)
-      - [Downloading the captured data](#downloading-the-captured-data)
-    - [Annotate and Export](#annotate-and-export)
-      - [Finding the right gesture](#finding-the-right-gesture)
-      - [Annotating the gesture](#annotating-the-gesture)
-      - [Exporting the dataset](#exporting-the-dataset)
-    - [Gesture Annotator](#gesture-annotator)
-      - [The Gesture View](#the-gesture-view)
-      - [The Timeline](#the-timeline)
-      - [The Annotation View](#the-annotation-view)
-      - [The Control Panel](#the-control-panel)
-    - [Export Format](#export-format)
-      - [Data File Format](#data-file-format)
-      - [Annotation File Format](#annotation-file-format)
-      - [Encouraged Workflow](#encouraged-workflow)
-    - [Useful Notes](#useful-notes)
-      - [Editing and Deleting](#editing-and-deleting)
-      - [Menubar](#menubar)
-      - [Annotation Status](#annotation-status)
-  - [Known Bugs](#known-bugs)
-  - [Extension](#extension)
-  - [TODO](#todo)
+- [Table of Contents](#table-of-contents)
+- [Purpose](#purpose)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Hosting servers](#hosting-servers)
+  - [Setup](#setup)
+    - [Register and Login](#register-and-login)
+    - [Creating Gesture Classes](#creating-gesture-classes)
+    - [Creating Trial Templates](#creating-trial-templates)
+    - [Adding Participants and Pushing Trials](#adding-participants-and-pushing-trials)
+  - [Capture](#capture)
+    - [Getting the URL](#getting-the-url)
+    - [Opening the URL on the VR Headset](#opening-the-url-on-the-vr-headset)
+    - [Making the participant perform the trial](#making-the-participant-perform-the-trial)
+    - [Downloading the captured data](#downloading-the-captured-data)
+  - [Annotate and Export](#annotate-and-export)
+    - [Finding the right gesture](#finding-the-right-gesture)
+    - [Annotating the gesture](#annotating-the-gesture)
+    - [Exporting the dataset](#exporting-the-dataset)
+  - [Gesture Annotator](#gesture-annotator)
+    - [The Gesture View](#the-gesture-view)
+    - [The Timeline](#the-timeline)
+    - [The Annotation View](#the-annotation-view)
+    - [The Control Panel](#the-control-panel)
+  - [Export Format](#export-format)
+    - [Data File Format](#data-file-format)
+    - [Annotation File Format](#annotation-file-format)
+    - [Encouraged Workflow](#encouraged-workflow)
+  - [Useful Notes](#useful-notes)
+    - [Editing and Deleting](#editing-and-deleting)
+    - [Menubar](#menubar)
+    - [Annotation Status](#annotation-status)
+- [Known Bugs](#known-bugs)
+- [Extension](#extension)
+- [TODO](#todo)
 
 
-## Purpose
+# Purpose
 This application has been built to make the creation of
 hand-gesture datasets easier. It facilitates the asynchronous 
 setup, capture, annotation and export of this data, 
@@ -56,7 +56,7 @@ hand data easy. Simply:
  - Annotate the captured data in batches
  - Export the captured data to a dataset
 
-## Installation
+# Installation
 You can install and run a version of this app through the standalone
 installer: [releases](https://github.com/Saatvik-Lochan/GestureLogger/releases)
 
@@ -66,7 +66,7 @@ $ git clone https://github.com/Saatvik-Lochan/GestureLogger.git
 ```
 and opening [`Login.mlapp`](Login.mlapp) with [MATLAB](https://uk.mathworks.com/products/matlab.html).
 
-## Usage
+# Usage
 The usage of this application is split into three main parts:
  - [Setup the project](#setup)
  - [Capture the data](#capture)
@@ -76,7 +76,7 @@ There are some [notes](#useful-notes) that might come in useful.
 Additionally you can see the [export format](#export-format) and
 the [gesture annotator](#gesture-annotator).
 
-### Hosting servers
+## Hosting servers
 It is recommended that you host your own servers:
 - [WebGestureCapture](https://github.com/Saatvik-Lochan/WebGestureCapture.git) 
 is the frontend that serves the pages on which the participants perform
@@ -112,8 +112,8 @@ a participant needs to perform a gesture.
 your requests. Though you are welcome to use the default servers to 
 trial the software. 
 
-### Setup
-#### Register and Login
+## Setup
+### Register and Login
 On opening the application you will first have to register your project
 with the server. 
 
@@ -123,7 +123,7 @@ of the project you registered last time
 > If the server does not respond, you might have to host your own 
 [server](#hosting-servers).
 
-#### Creating Gesture Classes
+### Creating Gesture Classes
 ![UML of the annotation gesture classes](docs/annotation_uml.png)
 *Outline of the relationship between annotations*
 
@@ -154,7 +154,7 @@ the instructions, the demonstration should appear in any trials using that
 
 ![Screenshot of the gesture demonstration tab](docs/gesture_demonstration.png)
 
-#### Creating Trial Templates
+### Creating Trial Templates
 A `trial` is the unit of data capture from the perspective of the
 application. You must put gestures in a `trial template` before
 you can send them to the VR headset for data capture. 
@@ -181,7 +181,7 @@ before any of the gestures).
 might want to test that the text looks alright before you use the
 trial in a project.
 
-#### Adding Participants and Pushing Trials
+### Adding Participants and Pushing Trials
 Now that you have some `trial templates` set up, you can add 
 `participants` and then push `trials` onto them - this works in
 two parts:
@@ -195,7 +195,7 @@ two parts:
 You may also add any useful information about a participant 
 (such as an email, or a name) in a text box located under the `Participant Data` tab.
 
-### Capture
+## Capture
 The project has now been set up and the data capture can start.
 This works as follows:
 1. [Get a URL from the application](#getting-the-url) 
@@ -203,14 +203,14 @@ This works as follows:
 3. [Make the participant perform the trial](#making-the-participant-perform-the-trial)
 4. [Download the captured data from the server](#downloading-the-captured-data)
 
-#### Getting the URL
+### Getting the URL
 Each participant will have their own URL. This URL will not change,
 and they will be able to access any pending trials (i.e. trials
 which have been pushed but not completed) through this URL.
 
 ![Screenshot of where to find the URL](docs/participant_url.png)
 
-#### Opening the URL on the VR Headset
+### Opening the URL on the VR Headset
 This URL must now make its way to a VR Headset. The only requirement
 on this headset is that it must have a [WebXR](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API)
 enabled browswer. A few common headsets which support this are:
@@ -224,7 +224,7 @@ And so on - a more complete list can be found [here](https://immersive-web.githu
 > How you move the URL to the headset is up to you, however we 
 recommend you bookmark this URL on the headset's browser.
 
-#### Making the participant perform the trial
+### Making the participant perform the trial
 The participant must open the URL, and click `Enter VR` and 
 follow the instructions to perform the `trial`.
 
@@ -236,19 +236,19 @@ can be performed anywhere, and at anytime, as long as they
 have the headset. This allows for en-masse collection of data
 once participants have gotten the hang of recording gestures.
 
-#### Downloading the captured data
+### Downloading the captured data
 This is as simple as clicking the `Sync` button in the menu bar.
 The data can be downloaded from the server for up to 3 days after it 
 was recorded. This time can be changed or removed entirely if you 
 decide to [host your own servers](#hosting-servers). 
 
-### Annotate and Export
+## Annotate and Export
 This involves three steps:
 1. [Finding the gesture to annotate](#finding-the-right-gesture)
 2. [Annotating the gesture](#annotating-the-gesture)
 3. [Exporting the dataset](#exporting-the-dataset)
 
-#### Finding the right gesture
+### Finding the right gesture
 Downloaded gesture can be found in three main ways:
 - By `gesture class` - *navigate to the `Gestures` tab then `Gesture 
  Instances`*
@@ -256,14 +256,14 @@ Downloaded gesture can be found in three main ways:
  Gestures`*
 - By annotation status - *navigate to the `Captures` tab*
 
-#### Annotating the gesture
+### Annotating the gesture
 Select the `gesture instance` in the table, and then select `Open
 Gesture Annotator`. You may have to wait for the new application to open.
 
 See [Gesture Annotator](#gesture-annotator) for details on 
 using this part of the application.
 
-#### Exporting the dataset
+### Exporting the dataset
 Select `Export` then `exportSHREC` in the menubar to open the export window. 
 Only annotations marked as `completed` are added to any export (see 
 [annotation status](#annotation-status)).
@@ -297,7 +297,7 @@ See [trial templates](#creating-trial-templates).
 > See [export format](#export-format) for more details on the output of the 
 export.
 
-### Gesture Annotator
+## Gesture Annotator
 ![Screenshot of the gesture annotator](docs/gesture_annotator.png)
 The gesture annotator is the part of the application that 
 deals with the process of annotating the captured gesture data.
@@ -318,7 +318,7 @@ The labels correspond to the following
 3. [the annotation view](#the-annotation-view)
 4. [the control panel](#the-control-panel)
 
-#### The Gesture View
+### The Gesture View
 The gesture view is the part of the application where you can see the 
 gesture itself modelled as a plot of connected joints. This is a 
 standard [MATLAB 3D plot](https://uk.mathworks.com/help/matlab/ref/plot3.html)
@@ -332,7 +332,7 @@ includes:
 them before interacting with the timeline, otherwise you
 might encounter some bugs.
 
-#### The Timeline
+### The Timeline
 The timeline has 3 important components: the cursor, the annotations, and the
 annotation subtitle.
 
@@ -353,7 +353,7 @@ The selected annotation can be changed by clicking on an annotation with the
 MMB, or by holding `alt` with the LMB. It can also be changed by selecting
 it in the [annotation view](#the-annotation-view).
 
-#### The Annotation View
+### The Annotation View
 The annotation view shows the `annotations` and their `sub-annotations` (see
 [creating gesture classes](#creating-gesture-classes)). 
 
@@ -368,7 +368,7 @@ the current frame is within that annotation.
 You can hide an annotation in the timeline by unchecking it in the annotation
 view.
 
-#### The Control Panel
+### The Control Panel
 This panel is mostly self-explanatory. You can 
  - Play/Pause
  - Change playback speed
@@ -383,7 +383,7 @@ This panel is mostly self-explanatory. You can
  > Marking a gesture as complete will not save it. You must save it manually 
  as well.
 
-### Export Format
+## Export Format
 The `exportSHREC` export format will export a dataset similar to that curated
 in the [SHREC dataset](https://paperswithcode.com/dataset/shrec).
 
@@ -398,7 +398,7 @@ in the [SHREC dataset](https://paperswithcode.com/dataset/shrec).
 ```
 > See [format string](#exporting-the-dataset).
 
-#### Data File Format
+### Data File Format
 Each data file will itself be a `.csv` file with the 359 columns of two types
 - Position data (350 columns)
 - Time data (2 columns - `startTime` and `endTime`)
@@ -420,7 +420,7 @@ joint as laid out in the [WebXR Hand Input Specification](https://www.w3.org/TR/
 
 Therefore the `l0_pos_x` column gives us the left-hand wrist's x position.
 
-#### Annotation File Format
+### Annotation File Format
 The annotation file is also a `.csv` file with one row per `gesture instance`
 of that `gesture class` (there is one annotation file per `gesture class`).
 
@@ -459,7 +459,7 @@ included for ease of use, to mimic the SHREC dataset, and on the off chance
 that someone edits the annotation of a gesture after already annotating some 
 gestures.
 
-#### Encouraged Workflow
+### Encouraged Workflow
 
 The encouraged workflow is to:
 1. Mark all the required gestures as completed.
@@ -467,8 +467,8 @@ The encouraged workflow is to:
 3. Sort and filter those gestures during analysis with the help of the file 
 names given by the format strings.
 
-### Useful Notes
-#### Editing and Deleting
+## Useful Notes
+### Editing and Deleting
 There is no provision to delete trials, participants or gesture. 
 
 If you want to edit a trial, ensure you do it **before** you 
@@ -482,14 +482,14 @@ want the annotation to propagate to any previously annotated gestures -
 you must delete the annotation file for that gesture (See **Admin** in the
 [menubar](#menubar)).
 
-#### Menubar
+### Menubar
 The menubar has 4 items:
 - Refresh - updates the GUI if it appears to be stuck
 - Sync - upload unpushed trials and download completed ones
 - Export - export completed gestures
 - Admin - get the locations of important folders and URLs 
 
-#### Annotation Status
+### Annotation Status
 A gesture can have one of three values as an annotation status
 - `unannotated` - this implies that this gesture has never been opened in the 
 [gesture annotator](#gesture-annotator) (i.e. internally, the annotation file has not been created).
@@ -500,7 +500,7 @@ has not marked it as complete.
 > A geture must be marked as `complete` to be included in an
 > [export](#exporting-the-dataset)
 
-## Known Bugs
+# Known Bugs
 - **Bug:** Experiencing extreme lag and stuttering when using the [gesture 
 annotator](#gesture_annotator)
   - **Fix:** Your gesture capture likely has large gaps between frames, due
@@ -515,14 +515,14 @@ annotator](#gesture_annotator)
 - **Issue:** No sanitation of user input in the participant info section
 
 
-## Extension
+# Extension
 To add functionality, you must have access to [MATLAB AppDesigner](https://uk.mathworks.com/products/matlab/app-designer.html). 
 Then you can simply open [`Login.mlapp`](Login.mlapp) to start.
 
 You can run a development session from within MATLAB, and you
 can build a standalone application with the [Application Compiler](https://uk.mathworks.com/help/compiler/applicationcompiler-app.html).
 
-## TODO
+# TODO
 - [ ] README updates
     - [ ] Fix unimplemented links 
     - [ ] Record short video for the trials 
@@ -544,3 +544,4 @@ this type has already been recorded + name the gesture in the recording)
 - [x] Add a clock (which speeds up when below a certain threshold)
 - [x] Add a progress bxr on top
 - [x] Add a way to view gesture demonstrations from inside the application
+- [ ] Add a minimal section setup to the readme
