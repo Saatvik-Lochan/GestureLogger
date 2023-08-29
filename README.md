@@ -228,7 +228,11 @@ recommend you bookmark this URL on the headset's browser.
 The participant must open the URL, and click `Enter VR` and 
 follow the instructions to perform the `trial`.
 
-> We recommend you show them [this]() video (or a similar one) and explain
+> We recommend you show them [this](
+
+https://github.com/Saatvik-Lochan/GestureLogger/assets/67321822/e94848a3-3b23-446f-8b89-ec8c5558716c
+
+) video (or a similar one) and explain
 the procedure to make things clear 
 
 Once done, they are prompted to remove the headset. The trial
