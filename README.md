@@ -58,7 +58,7 @@ hand data easy. Simply:
 
 ## Installation
 You can install and run a version of this app through the standalone
-installer: [unimplemented link]()
+installer: [releases](https://github.com/Saatvik-Lochan/GestureLogger/releases)
 
 You can also run this by cloning the repository  
 ```console
@@ -228,8 +228,8 @@ recommend you bookmark this URL on the headset's browser.
 The participant must open the URL, and click `Enter VR` and 
 follow the instructions to perform the `trial`.
 
-> We recommend you show them [this]() video (or a similar one) so 
-they are not confused
+> We recommend you show them [this]() video (or a similar one) and explain
+the procedure to make things clear 
 
 Once done, they are prompted to remove the headset. The trial
 can be performed anywhere, and at anytime, as long as they
@@ -512,6 +512,7 @@ annotator](#gesture_annotator)
              are not the project file, though that also must be deleted). You 
              can find its location by opening another project and going to
              **Admin > DataFolder**
+- **Issue:** No sanitation of user input in the participant info section
 
 
 ## Extension
