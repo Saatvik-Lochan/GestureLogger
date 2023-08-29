@@ -156,8 +156,8 @@ the instructions, the demonstration should appear in any trials using that
 
 ![Screenshot of the gesture demonstration tab](docs/gesture_demonstration.png)
 
-You can preview a recorded gesture by clicking on `Recording exists - click to
-view`.
+You can preview a recorded demonstration by clicking on
+`Recording exists - click to view`.
 
 https://github.com/Saatvik-Lochan/GestureLogger/assets/67321822/ca84f580-0fb9-4586-876a-b61103eb4d00
 
