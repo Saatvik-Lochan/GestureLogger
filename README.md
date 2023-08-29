@@ -9,6 +9,7 @@
   - [Setup](#setup)
     - [Register and Login](#register-and-login)
     - [Creating Gesture Classes](#creating-gesture-classes)
+    - [Adding Demonstrations](#adding-demonstrations)
     - [Creating Trial Templates](#creating-trial-templates)
     - [Adding Participants and Pushing Trials](#adding-participants-and-pushing-trials)
   - [Capture](#capture)
@@ -146,13 +147,19 @@ can edit the annotation coupled with it in the right hand pane - adding
 The predicted properties panel is optional, and will be used
 to populate the default annotation values.
 
-> You can add demonstrations to the gestures that will be displayed to 
+### Adding Demonstrations
+You can add demonstrations to the gestures that will be displayed to 
 participants by going to the `Demonstration` tab. The resulting link should be
 [opened with a VR headset](#opening-the-url-on-the-vr-headset). After following
 the instructions, the demonstration should appear in any trials using that 
 `gesture class`. The link will expire after a few minutes.
 
 ![Screenshot of the gesture demonstration tab](docs/gesture_demonstration.png)
+
+You can preview a recorded gesture by clicking on `Recording exists - click to
+view`.
+
+
 
 ### Creating Trial Templates
 A `trial` is the unit of data capture from the perspective of the
