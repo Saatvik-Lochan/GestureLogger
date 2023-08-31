@@ -420,7 +420,7 @@ chronological order.
 
 A position header will be similar to: `l0_pos_x`. 
 - The first character `l` indicates the left hand (`r` for right)
-- The second character is a number from 0 to 24 corresponding to a hand
+- The second part is a number from 0 to 24 corresponding to a hand
 joint as laid out in the [WebXR Hand Input Specification](https://www.w3.org/TR/webxr-hand-input-1/#skeleton-joints-section)
 - `pos` indicated that this column holds information on the position of the joint.
 `quat` would indicate the quaternion for that joint.
@@ -462,8 +462,8 @@ This would give us a row like
 1,Clap,100,350,HandsMeet,200
 ```
 
-> Although you might assume that each gesture class has the same format of
-annotations, and that the `<annotation_name>` is redundant, it has been
+> Although it might seem that since each gesture class has the same format of
+annotations, the `<annotation_name>` is redundant, it has been
 included for ease of use, to mimic the SHREC dataset, and on the off chance 
 that someone edits the annotation of a gesture after already annotating some 
 gestures.
@@ -513,7 +513,7 @@ has not marked it as complete.
 - **Bug:** Experiencing extreme lag and stuttering when using the [gesture 
 annotator](#gesture_annotator)
   - **Fix:** Your gesture capture likely has large gaps between frames, due
-             to a bad recording of the data. The best option is to discard 
+             to a faulty recording of the data. The best option is to discard 
              that gesture.
 - **Bug:** A project can not be created since one with that name already, 
            exists even though the previous creation had supposedly failed.
