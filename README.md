@@ -58,10 +58,7 @@ hand data easy. Simply:
  - Export the captured data to a dataset
 
 # Installation
-You can install and run a version of this app through the standalone
-installer: [releases](https://github.com/Saatvik-Lochan/GestureLogger/releases)
-
-You can also run this by cloning the repository  
+You can run this app by cloning the repository  
 ```console
 $ git clone https://github.com/Saatvik-Lochan/GestureLogger.git
 ```
@@ -119,7 +116,10 @@ On opening the application you will first have to register your project
 with the server. 
 
 You can then login by selecting the `.json` project file with the name
-of the project you registered last time
+of the project you registered last time.
+
+If you are experiencing errors like missing custom UI components after login, 
+you can refer to [this page](https://github.com/Saatvik-Lochan/GestureLogger/issues/1) to solve the issue.
 
 > If the server does not respond, you might have to host your own 
 [server](#hosting-servers).
