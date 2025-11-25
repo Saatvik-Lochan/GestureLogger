@@ -58,11 +58,14 @@ hand data easy. Simply:
  - Export the captured data to a dataset
 
 # Installation
-You can run this app by cloning the repository  
+You can [download and extract the zip](https://github.com/Saatvik-Lochan/GestureLogger/archive/refs/heads/main.zip) of the source code to run this app.
+
+Alternatively, you can clone the repository:
 ```console
 $ git clone https://github.com/Saatvik-Lochan/GestureLogger.git
 ```
-and opening [`Login.mlapp`](Login.mlapp) with [MATLAB](https://uk.mathworks.com/products/matlab.html).
+
+Then open [`Login.mlapp`](Login.mlapp) with [MATLAB](https://uk.mathworks.com/products/matlab.html).
 
 # Usage
 The usage of this application is split into three main parts:
