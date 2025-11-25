@@ -83,7 +83,7 @@ the gestures
 - [WebGestureCaptureBackend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git)
 is the backend that stores the captured data and communicates with the
 application
-    - default: https://gesturelogger.com:8000
+    - default: https://gesturelogger.com
 
 > Hosting your own server will require a SSL certificate, as WebXR only works
 > with https
