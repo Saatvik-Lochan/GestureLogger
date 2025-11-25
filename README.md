@@ -412,7 +412,7 @@ in the [SHREC dataset](https://paperswithcode.com/dataset/shrec).
 
 ### Data File Format
 Each data file will itself be a `.csv` file with the 359 columns of two types
-- Position data (350 columns)
+- Joint data (350 columns)
 - Time data (2 columns - `startTime` and `endTime`)
     - `startTime` - the time at which this frame's capture started in milliseconds
     - `endTime` - the time at which this frame's capture ended in milliseconds
