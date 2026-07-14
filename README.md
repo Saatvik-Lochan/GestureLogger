@@ -3,6 +3,7 @@
 - [GestureLogger](#gesturelogger)
 - [Table of Contents](#table-of-contents)
 - [Purpose](#purpose)
+- [How this fits into the system](#how-this-fits-into-the-system)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Hosting servers](#hosting-servers)
@@ -57,6 +58,24 @@ hand data easy. Simply:
  - Annotate the captured data in batches
  - Export the captured data to a dataset
 
+# How this fits into the system
+This desktop app is one of three parts:
+
+- **GestureLogger (this repo)** — authoring and capture control. Define
+  gesture classes, record demonstrations, build trials, register
+  participants, and get each participant's capture link.
+- **[GestureLogger web platform](https://github.com/BYGGG/GestureLogger)** —
+  the web server. Hosts the WebXR capture pages (`frontend/`), the API
+  (`backend/`), a manager portal (`portal/`), and an ONNX inference page
+  (`deploy/`). It shares this repo's name but is a different repo.
+- **[GestureTrainer](https://github.com/BYGGG/GestureTrainer)** — trains a
+  gesture classifier from the captured CSVs and exports it as `.onnx`.
+
+The data loop: author trials here → participants perform them in a WebXR
+headset via the web platform → captured CSVs land on the server → train a
+model with GestureTrainer → upload the `.onnx` through the portal → the
+`deploy/` page runs it live.
+
 # Installation
 You can [download and extract the zip](https://github.com/Saatvik-Lochan/GestureLogger/archive/refs/heads/main.zip) of the source code to run this app.
 
@@ -78,13 +97,13 @@ Additionally you can see the [export format](#export-format) and
 the [gesture annotator](#gesture-annotator).
 
 ## Hosting servers
-It is recommended that you host your own servers:
-- [WebGestureCapture](https://github.com/Saatvik-Lochan/WebGestureCapture.git) 
-is the frontend that serves the pages on which the participants perform
+It is recommended that you host your own servers. Both live in the
+[GestureLogger web platform](https://github.com/BYGGG/GestureLogger)
+monorepo (a different repo, despite the name):
+- `frontend/` serves the pages on which the participants perform
 the gestures
     - default: https://gesturelogger.com
-- [WebGestureCaptureBackend](https://github.com/Saatvik-Lochan/WebGestureCaptureBackend.git)
-is the backend that stores the captured data and communicates with the
+- `backend/` stores the captured data and communicates with the
 application
     - default: https://gesturelogger.com
 
