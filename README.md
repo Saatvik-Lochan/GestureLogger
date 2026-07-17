@@ -64,7 +64,7 @@ This desktop app is one of three parts:
 - **GestureLogger (this repo)** — authoring and capture control. Define
   gesture classes, record demonstrations, build trials, register
   participants, and get each participant's capture link.
-- **[GestureLogger web platform](https://github.com/BYGGG/GestureLogger)** —
+- **[GestureLogger_Web_Platform](https://github.com/BYGGG/GestureLogger_Web_Platform)** —
   the web server. Hosts the WebXR capture pages (`frontend/`), the API
   (`backend/`), a manager portal (`portal/`), and an ONNX inference page
   (`deploy/`). It shares this repo's name but is a different repo.
